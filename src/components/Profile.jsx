@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Collapse } from 'react-bootstrap';
 import uploadImg from '../assets/uploadImg.jpg'
 import SERVER_BASE_URL from '../services/serverUrl';
+import { updateUserAPI } from '../services/allAPI';
 
 const Profile = () => {
   const [open, setOpen] = useState(false);
@@ -47,7 +48,12 @@ const Profile = () => {
           "Authorization":`Bearer ${token}`
         }
         try{
-          
+          const result = await updateUserAPI(reqBody,reqHeader)
+          if(result.status==200){
+            alert("User profile updated successfully!!!")
+            sessionStorage.setItem("user",JSON.stringify(result.data))
+            setOpen(!open)
+          }
         }catch(err){
           console.log(err)
         }
