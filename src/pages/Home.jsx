@@ -56,7 +56,7 @@ const Home = () => {
                 isLogin?
                 <Link to={'/dashboard'} className='btn btn-warning'>MANAGE YOUR PROJECTS</Link>
                 :
-                <Link to={'/login'} className='btn btn-warning'>STARTS TO EXPLORE</Link>
+                <Link to={'/login'} className='btn btn-warning'>START TO EXPLORE</Link>
               }
             </div>
             <div className="col-lg-6">
